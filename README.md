@@ -1,9 +1,8 @@
 <p align="center">
     <img alt="Cloudflare Email Sender Icon, by DALL-E" height="128" src="./images/icon.png">
     <h1 align="center">Cloudflare Email Sender</h1>
+    <p align="center">Use Cloudflare Queues to deliver emails.</p>
 </p>
-
-Use Cloudflare Queues to deliver emails.
 
 ## Usage
 
@@ -16,9 +15,9 @@ After the service has been deployed, you can bind it to other services:
 
 ```toml
 # wrangler.toml of other worker service
-services = [
-    { binding = "sender", service = "email-sender" }
-]
+[[queues.producers]]
+binding = "sender"
+queue = "emails-to-send"
 ```
 
 ```ts
@@ -28,13 +27,17 @@ export default {
         // do something ...
 
         // request email sender to send email
-        const { ok } = await env.sender.fetch({
+        await env.sender.send({
             // ... see Email Message
         });
 
         // do something ...
     },
 };
+
+interface Env {
+    sender: Queue;
+}
 ```
 
 ## Email Message
