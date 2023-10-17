@@ -1,4 +1,7 @@
-# Cloudflare Email Sender
+<p align="center">
+    <img alt="Cloudflare Email Sender Icon, by DALL-E" height="128" src="./images/icon.png">
+    <h1 align="center">Cloudflare Email Sender</h1>
+</p>
 
 Use Cloudflare Queues to deliver emails.
 
