@@ -47,7 +47,7 @@ interface Message {
     to: string[];
     subject: string;
     body: string;
-    a: "plain" | "html";
+    format: "plain" | "html";
     as: {
         name: string;
         address: string;
