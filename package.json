@@ -1,0 +1,33 @@
+{
+	"name": "cloudflare-email-sender",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"prepare": "husky install",
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev",
+		"format": "prettier --write .",
+		"create-queue": "wrangler queues create emails-to-send",
+		"tail": "wrangler tail"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20231016.0",
+		"@types/debug": "^4.1.9",
+		"husky": "^8.0.3",
+		"lint-staged": "^15.0.1",
+		"prettier": "^3.0.3",
+		"prettier-plugin-organize-imports": "^3.2.3",
+		"typescript": "^5.2.2",
+		"wrangler": "^3.13.1"
+	},
+	"lint-staged": {
+		"*.{js,ts}": [
+			"prettier --write"
+		]
+	},
+	"dependencies": {
+		"debug": "^4.3.4",
+		"zod": "^3.22.4"
+	}
+}
